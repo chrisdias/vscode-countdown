@@ -28,16 +28,17 @@
     ]
   },
   "scripts": {
-    "vscode:prepublish": "npm run compile",
-    "compile": "tsc -p ./",
-    "watch": "tsc -watch -p ./",
+    "vscode:prepublish": "npm run build",
+    "build": "node esbuild.js --minify",
+    "watch": "node esbuild.js --watch",
     "lint": "eslint src"
   },
   "devDependencies": {
-    "@types/vscode": "^1.98.0",
     "@types/node": "20.x",
+    "@types/vscode": "^1.98.0",
     "@typescript-eslint/eslint-plugin": "^8.28.0",
     "@typescript-eslint/parser": "^8.28.0",
+    "esbuild": "^0.25.2",
     "eslint": "^9.23.0",
     "typescript": "^5.8.2"
   }
