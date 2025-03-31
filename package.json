@@ -1,7 +1,7 @@
 {
   "name": "vscode-countdown",
-  "displayName": "vscode-countdown",
-  "description": "A countdown timer that shows remaining weeks/days in the status bar",
+  "displayName": "Countdown!!",
+  "description": "A countdown timer that shows remaining weeks/days in the Status Bar",
   "publisher": "chrisdias",
   "version": "0.0.1",
   "license": "MIT",
