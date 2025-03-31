@@ -31,7 +31,7 @@ export function activate(context: vscode.ExtensionContext) {
 				statusBarItem.text = "Set Date";
 			}
 		}
-	}, 2000); // Check every 2 seconds
+	}, 5000); // Check every 5 seconds
 
 	context.subscriptions.push({ dispose: () => clearInterval(storageCheckInterval) });
 
@@ -62,7 +62,7 @@ export function activate(context: vscode.ExtensionContext) {
 			}
 		} else {
 			// Date exists, show both options
-			const action = await vscode.window.showQuickPick(['Set Date', 'Clear Date'], {
+			const action = await vscode.window.showQuickPick(['Set Date', 'Clear'], {
 				placeHolder: 'Choose an action'
 			});
 
@@ -83,7 +83,7 @@ export function activate(context: vscode.ExtensionContext) {
 						vscode.window.showErrorMessage('Please enter a valid date in MM/DD/YY format');
 					}
 				}
-			} else if (action === 'Clear Date') {
+			} else if (action === 'Clear') {
 				await context.globalState.update(STORAGE_KEY, undefined);
 				statusBarItem.text = "Set Date";
 			}
