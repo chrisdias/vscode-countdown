@@ -2,9 +2,9 @@ import * as vscode from 'vscode';
 
 let statusBarItem: vscode.StatusBarItem;
 const STORAGE_KEY = 'targetDate';
+let lastKnownDate: string | undefined;
 
 export function activate(context: vscode.ExtensionContext) {
-
 	const regex = /Visual Studio Code/;
 	if (!regex.test(vscode.env.appName)) {
 		vscode.window.showErrorMessage("This extension can only be used with Visual Studio Code. Using it in any other product could cause unexpected behavior, performance, or security issues.", { modal: true });
@@ -19,6 +19,24 @@ export function activate(context: vscode.ExtensionContext) {
 	);
 	statusBarItem.command = 'countdown.setDate';
 	context.subscriptions.push(statusBarItem);
+
+	// Check for storage changes every few seconds to sync across instances
+	const storageCheckInterval = setInterval(() => {
+		const currentDate = context.globalState.get<string>(STORAGE_KEY);
+		if (currentDate !== lastKnownDate) {
+			lastKnownDate = currentDate;
+			if (currentDate) {
+				updateStatusBar(new Date(currentDate));
+			} else {
+				statusBarItem.text = "Set Date";
+			}
+		}
+	}, 2000); // Check every 2 seconds
+
+	context.subscriptions.push({ dispose: () => clearInterval(storageCheckInterval) });
+
+	// Initialize lastKnownDate
+	lastKnownDate = context.globalState.get<string>(STORAGE_KEY);
 
 	// Register command to set the date
 	let setDateCommand = vscode.commands.registerCommand('countdown.setDate', async () => {
