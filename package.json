@@ -4,6 +4,11 @@
   "description": "A countdown timer that shows remaining weeks/days in the status bar",
   "publisher": "chrisdias",
   "version": "0.0.1",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/chrisdias/vscode-countdown.git"
+  },
   "engines": {
     "vscode": "^1.98.0"
   },
