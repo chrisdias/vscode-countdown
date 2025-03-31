@@ -4,6 +4,13 @@ let statusBarItem: vscode.StatusBarItem;
 const STORAGE_KEY = 'targetDate';
 
 export function activate(context: vscode.ExtensionContext) {
+
+	const regex = /Visual Studio Code/;
+	if (!regex.test(vscode.env.appName)) {
+		vscode.window.showErrorMessage("This extension can only be used with Visual Studio Code. Using it in any other product could cause unexpected behavior, performance, or security issues.", { modal: true });
+		return;
+	}
+	
 	// Create status bar item with Left alignment and low priority (higher number = more left)
 	statusBarItem = vscode.window.createStatusBarItem(
 		'countdown.timer',
