@@ -4,11 +4,11 @@ let statusBarItem: vscode.StatusBarItem;
 const STORAGE_KEY = 'targetDate';
 
 export function activate(context: vscode.ExtensionContext) {
-	// Create status bar item with Left alignment
+	// Create status bar item with Left alignment and low priority (higher number = more left)
 	statusBarItem = vscode.window.createStatusBarItem(
 		'countdown.timer',
 		vscode.StatusBarAlignment.Left,
-		100
+		10
 	);
 	statusBarItem.command = 'countdown.setDate';
 	context.subscriptions.push(statusBarItem);

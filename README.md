@@ -1,71 +1,54 @@
-# vscode-countdown README
+# VS Code Countdown Timer
 
-This is the README for your extension "vscode-countdown". After writing up a brief description, we recommend including the following sections.
+A simple Visual Studio Code extension that shows a countdown timer in the status bar. The timer displays the number of weeks and days until a target date.
 
 ## Features
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+- Shows countdown in weeks and days in the status bar
+- Simple date input format (MM/DD/YY)
+- Persistent storage of the target date between VS Code sessions
+- Easy to set and clear the target date
 
-For example if there is an image subfolder under your extension project workspace:
+## Usage
 
-\!\[feature X\]\(images/feature-x.png\)
+1. Click on "Set Date" in the status bar (left side)
+2. Enter a target date in MM/DD/YY format (e.g., "12/31/25")
+3. The status bar will show the countdown in weeks and days (e.g., "5W/35D")
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+If you've already set a date and want to change or clear it:
+1. Click on the countdown in the status bar
+2. Choose either "Set Date" to enter a new date or "Clear Date" to remove the countdown
 
-## Requirements
+## Development
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+### Prerequisites
+- Node.js
+- VS Code
+
+### Setup
+1. Clone the repository
+2. Run `npm install`
+3. Open in VS Code
+4. Press F5 to start debugging
+
+### Building
+- Run `npm run watch` to start the TypeScript compiler in watch mode
+- Run `npm run compile` to compile the extension
 
 ## Extension Settings
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
-
-For example:
-
-This extension contributes the following settings:
-
-* `myExtension.enable`: Enable/disable this extension.
-* `myExtension.thing`: Set to `blah` to do something.
+This extension does not add any VS Code settings.
 
 ## Known Issues
 
-Calling out known issues can help limit users opening duplicate issues against your extension.
+None currently.
 
 ## Release Notes
 
-Users appreciate release notes as you update your extension.
+### 0.0.1
 
-### 1.0.0
-
-Initial release of ...
-
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
-
----
-
-## Following extension guidelines
-
-Ensure that you've read through the extensions guidelines and follow the best practices for creating your extension.
-
-* [Extension Guidelines](https://code.visualstudio.com/api/references/extension-guidelines)
-
-## Working with Markdown
-
-You can author your README using Visual Studio Code. Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux).
-* Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux).
-* Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets.
-
-## For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
+Initial release:
+- Basic countdown functionality
+- Status bar integration
+- Date persistence
+- Set/Clear date options
